@@ -1,4 +1,5 @@
-import { playSpinSound } from "./playsound";
+import { playSpinSound, stopSpinSound } from "./playsound";
+import isOnVabePage from "./isvapage";
 import { ModState } from "./state";
 
 let isSpinning = false;
@@ -28,6 +29,12 @@ async function swiperSpin() {
     const maxVelocity = 150;
 
     function step(currentTime: number) {
+        if (!isOnVabePage()) {
+            isSpinning = false;
+            stopSpinSound();
+            return;
+        }
+
         const elapsed = currentTime - startTime;
         const remaining = duration - elapsed;
 

@@ -28,3 +28,11 @@ export function playSpinSound(): HTMLAudioElement | null {
     audio.play().catch(() => {});
     return audio;
 }
+
+export function stopSpinSound() {
+    const audio = document.getElementById("mod-spin-sound") as HTMLAudioElement | null;
+    if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+}

@@ -1,7 +1,7 @@
 import addonConfig from '../../addon.config.mjs';
 import { getAddonSettings, readBooleanSetting } from '@/pulsesync';
 import { ModState } from "./state";
-import { setAudioUnlocked } from "./playsound";
+import { setAudioUnlocked, stopSpinSound } from "./playsound";
 import createButton from "./button";
 import isOnVabePage from "./isvapage";
 
@@ -24,7 +24,11 @@ export function mountYakubovich(): void {
     settingsStore.onChange(next => syncSettings(next));
 
     const observer = new MutationObserver(() => {
-        createButton();
+        if (isOnVabePage()) {
+            createButton();
+        } else {
+            stopSpinSound();
+        }
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
