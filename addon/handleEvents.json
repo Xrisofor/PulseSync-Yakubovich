@@ -1,0 +1,34 @@
+{
+    "sections": [
+        {
+            "title": "Барабан Якубовича",
+            "items": [
+                {
+                    "id": "playMusic",
+                    "name": "Звуковое сопровождение",
+                    "description": "Воспроизводить звук крутящегося барабана. Длительность спина автоматически подстроится под длину аудиофайла.",
+                    "type": "button",
+                    "bool": true,
+                    "defaultParameter": true
+                },
+                {
+                    "id": "audioFile",
+                    "name": "Кастомный звук",
+                    "description": "Вставьте прямую ссылку на аудиофайл из myinstants.com. По умолчанию используется классический звук вращения.",
+                    "type": "input",
+                    "defaultParameter": "https://www.myinstants.com/media/sounds/vrashchaite-baraban-p-ch.mp3"
+                },
+                {
+                    "id": "spinDuration",
+                    "name": "Длительность вращения (сек)",
+                    "description": "Используется, если звук выключен или ссылка недоступна.",
+                    "type": "slider",
+                    "min": 1,
+                    "max": 60,
+                    "step": 1,
+                    "defaultParameter": 5
+                }
+            ]
+        }
+    ]
+}
