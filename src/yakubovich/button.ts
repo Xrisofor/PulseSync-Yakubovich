@@ -1,5 +1,6 @@
 import swiperSpin from "./swiperspin";
 import isOnVabePage from "./isvapage";
+import { ModState } from "./state"
 
 function createButton(): void {
     if (!isOnVabePage()) return;
@@ -25,6 +26,17 @@ function createButton(): void {
     btn.onclick = (e) => {
         e.stopPropagation();
         swiperSpin();
+
+        if (!ModState.playMusic) return;
+
+        const api = window.pulsesyncApi;
+        if (api) {
+            const state = api.getState();
+            const currentStatus = state?.playerState?.status?.value;
+
+            if (currentStatus === 'playing')
+                api.pause();
+        }
     };
 
     likeBtn.parentNode?.insertBefore(btn, likeBtn);
