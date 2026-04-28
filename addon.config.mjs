@@ -3,7 +3,7 @@ const addonConfig = {
     directoryName: 'pulsesync-yakubovich',
     name: 'Yakubovich',
     description: 'Добавляет кнопку вращения барабана в плеер Моей Волны для случайного выбора.',
-    version: '1.0.0',
+    version: '1.0.2',
     author: 'Xrisofor',
     type: 'script',
     image: 'image.png',

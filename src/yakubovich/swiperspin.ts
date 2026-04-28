@@ -10,6 +10,11 @@ async function swiperSpin() {
     const swiper = document.querySelector<HTMLElement>(".swiper");
     if (!swiper) return;
 
+    const api = window.pulsesyncApi;
+    if (api && api.getState()?.playerState?.status?.value === 'playing' && ModState.playMusic) {
+        api.pause();
+    }
+
     isSpinning = true;
     let audio: HTMLAudioElement | null = null;
     let duration = ModState.spinDuration * 1000;

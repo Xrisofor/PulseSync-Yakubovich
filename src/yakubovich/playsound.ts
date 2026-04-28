@@ -8,10 +8,10 @@ export function isAudioUnlocked() { return audioUnlocked; }
 export function playSpinSound(): HTMLAudioElement | null {
     if (!audioUnlocked || !isOnVabePage()) return null;
 
-    let audio = document.getElementById("mod-spin-sound") as HTMLAudioElement | null;
+    let audio = document.getElementById("yakubovich-spin-sound") as HTMLAudioElement | null;
     if (!audio) {
         audio = document.createElement("audio");
-        audio.id = "mod-spin-sound";
+        audio.id = "yakubovich-spin-sound";
         audio.preload = "auto";
         document.body.appendChild(audio);
     }
@@ -30,7 +30,7 @@ export function playSpinSound(): HTMLAudioElement | null {
 }
 
 export function stopSpinSound() {
-    const audio = document.getElementById("mod-spin-sound") as HTMLAudioElement | null;
+    const audio = document.getElementById("yakubovich-spin-sound") as HTMLAudioElement | null;
     if (audio) {
         audio.pause();
         audio.currentTime = 0;
